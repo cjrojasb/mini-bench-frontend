@@ -1,0 +1,26 @@
+<div class="box-title">
+  <h1 class="fs-25 m-0">Datos Personales</h1>
+</div>
+<ng-container *ngIf="userData !== undefined; else loading">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>RUT</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ userData.name }}</td>
+        <td>{{ userData.lastName }}</td>
+        <td>{{ userData.rut }}</td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>
+<ng-template #loading>
+  <div class="box-spinner">
+    <mat-spinner [ngClass]="'cust-mat-spinner'" diameter="40"></mat-spinner>
+  </div>
+</ng-template>

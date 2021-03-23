@@ -1,0 +1,38 @@
+@import '../../../../assets/scss/tools.scss';
+
+.cust-row {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cust-card-header {
+  display: flex;
+  justify-content: center;
+}
+
+::ng-deep form .cust-mat-form-field, .cust-button-submit {
+  width: 100%;
+}
+
+::ng-deep form .cust-mat-form-field .mat-form-field-infix {
+  padding: 0.7em 0;
+  top: -0.25em;
+}
+
+::ng-deep .cust-form .cust-mat-form-field .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+.cust-button-submit {
+  align-items: center;
+  display: flex;
+  height: 36px;
+  justify-content: center;
+}
+
+.box-title {
+  padding: 1rem;
+}
+

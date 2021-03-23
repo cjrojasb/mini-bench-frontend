@@ -1,0 +1,13 @@
+@import '../../../assets/scss/tools.scss';
+
+.cust-nav-list {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 0;
+  width: 100%;
+}
+
+.cust-list-item {
+  width: auto !important;
+}

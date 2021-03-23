@@ -1,0 +1,83 @@
+<div class="box-title">
+  <h1 class="fs-25 m-0">Transferencias</h1>
+</div>
+<ng-container *ngIf="accountBalance !== undefined; else loadingBalance">
+  <div class="box-balance">
+    <p class="fs-18 m-0">Saldo de la cuenta: $<span class="fw-bold">{{ accountBalance }}</span></p>
+  </div>
+  <mat-card>
+    <ng-container *ngIf="accounts !== undefined; else loading">
+      <form [formGroup]="transfersForm" class="cust-form">
+        <div class="row">
+          <div class="col-md-12 pt-0-5r pb-1-5r">
+            <mat-form-field appearance="outline" [ngClass]="'cust-mat-form-field'">
+              <mat-label>Rut de Destino</mat-label>
+              <mat-select
+                formControlName="accountId"
+              >
+                <mat-option *ngFor="let account of accounts" [value]="account._id">
+                  {{ account.rut }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <ng-container *ngIf="transfersForm.get('accountId').errors && transfersForm.get('accountId').touched">
+              <div class="po-re">
+                <label class="po-ab ct-red fs-14">
+                  <ng-container *ngIf="transfersForm.get('accountId').errors?.required">
+                    El rut de destino es requerido.
+                  </ng-container>
+                </label>
+              </div>
+            </ng-container>
+          </div>
+          <div class="col-md-12 pt-0-5r pb-1-5r">
+            <mat-form-field appearance="outline" [ngClass]="'cust-mat-form-field'">
+              <mat-label>Monto a Transferir</mat-label>
+              <input matInput placeholder="Monto" formControlName="balance">
+            </mat-form-field>
+            <ng-container *ngIf="transfersForm.get('balance').errors && transfersForm.get('balance').touched">
+              <div class="po-re">
+                <label class="po-ab ct-red fs-14">
+                  <ng-container *ngIf="transfersForm.get('balance').errors?.required">
+                    El monto es requerido.
+                  </ng-container>
+                  <ng-container *ngIf="transfersForm.get('balance').errors?.pattern">
+                    Debe ingresar solo números.
+                  </ng-container>
+                </label>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div class="box-submit">
+          <button
+            (click)="submitForm(transfersForm.value)"
+            [disabled]="transfersForm.invalid"
+            [ngClass]="'cust-button-submit'"
+            color="primary"
+            mat-flat-button
+          >
+            <ng-container [ngSwitch]="sendingData">
+              <ng-container *ngSwitchCase="false">
+                Transferir
+              </ng-container>
+              <ng-container *ngSwitchCase="true">
+                <mat-spinner [ngClass]="'cust-loading-spinner'" diameter="25"></mat-spinner>
+              </ng-container>
+            </ng-container>
+          </button>
+        </div>
+      </form>
+    </ng-container>
+    <ng-template #loading>
+      <div class="box-spinner">
+        <mat-spinner [ngClass]="'cust-mat-spinner'" diameter="40"></mat-spinner>
+      </div>
+    </ng-template>
+  </mat-card>
+</ng-container>
+<ng-template #loadingBalance>
+  <div class="box-spinner">
+    <mat-spinner [ngClass]="'cust-mat-spinner'" diameter="40"></mat-spinner>
+  </div>
+</ng-template>

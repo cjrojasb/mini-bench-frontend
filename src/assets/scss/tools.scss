@@ -1,0 +1,319 @@
+/*
+=========================================================
+* Tools shortcuts for project
+=========================================================
+*/
+
+// Colors
+$red: #DB3907;
+
+// Text Color
+.ct-red {
+  color: #DB3907;
+}
+
+// Background Color
+.bg-light-grey {
+  background-color: #6C6E71;
+}
+
+// Font Size
+.fs-12 {
+  font-size: 12px;
+}
+.fs-13 {
+  font-size: 13px;
+}
+.fs-14 {
+  font-size: 14px;
+}
+.fs-16 {
+  font-size: 16px;
+}
+.fs-18 {
+  font-size: 18px;
+}
+.fs-20 {
+  font-size: 20px;
+}
+.fs-22 {
+  font-size: 22px;
+}
+.fs-25 {
+  font-size: 25px;
+}
+.fs-28 {
+  font-size: 28px;
+}
+.fs-30 {
+  font-size: 30px;
+}
+.fs-35 {
+  font-size: 35px;
+}
+.fs-50 {
+  font-size: 50px;
+}
+.fs-60 {
+  font-size: 60px;
+}
+
+// Font Weight
+.fw-bold {
+  font-weight: bold;
+}
+.fw-normal {
+  font-weight: normal;
+}
+
+// Font Style
+.fs-italic {
+  font-style: italic;
+}
+
+// Text Align
+.ta-start {
+  text-align: start;
+}
+.ta-justify {
+  text-align: justify;
+}
+.ta-center {
+  text-align: center;
+}
+.ta-left {
+  text-align: left;
+}
+.ta-right {
+  text-align: right;
+}
+
+// Padding
+.p-0 {
+  padding: 0;
+}
+.pb-0 {
+  padding-bottom: 0;
+}
+.pb-0-5r {
+  padding-bottom: 0.5rem;
+}
+.pb-1r {
+  padding-bottom: 1rem;
+}
+.pb-1-5r {
+  padding-bottom: 1.5rem;
+}
+.pb-2r {
+  padding-bottom: 2rem;
+}
+.pb-3r {
+  padding-bottom: 3rem;
+}
+.pt-0-5r {
+  padding-top: 0.5rem;
+}
+.pt-1r {
+  padding-top: 1rem;
+}
+.pt-1-5r {
+  padding-top: 1.5rem;
+}
+.pt-2r {
+  padding-top: 2rem;
+}
+.pt-3r {
+  padding-top: 3rem;
+}
+
+// Margin
+.m-0 {
+  margin: 0;
+}
+.ml-0-5-r {
+  margin-left: 0.5rem;
+}
+.ml-1r {
+  margin-left: 1rem;
+}
+.mr-1r {
+  margin-right: 1rem;
+}
+.mr-1-5r {
+  margin-right: 1.5rem;
+}
+.mr-2r {
+  margin-right: 2rem;
+}
+.mt-0 {
+  margin-top: 0;
+}
+.mt-1r {
+  margin-top: 1rem;
+}
+.mt-1-5r {
+  margin-top: 1.5rem;
+}
+.mt-2r {
+  margin-top: 2rem;
+}
+.mb-0-5r {
+  margin-bottom: 0.5rem;
+}
+.mb-1r {
+  margin-bottom: 1rem;
+}
+.mb-1-5r {
+  margin-bottom: 1.5rem;
+}
+.mb-2r {
+  margin-bottom: 2rem;
+}
+.mb-2-5r {
+  margin-bottom: 2.5rem;
+}
+
+// Flex
+.d-none {
+  display: none;
+}
+.d-block {
+  display: block;
+}
+.d-flex {
+  display: flex;
+}
+.jc-center {
+  justify-content: center;
+}
+.jc-between {
+  justify-content: space-between;
+}
+.jc-end {
+  justify-content: flex-end;
+}
+.jc-start {
+  justify-content: flex-start;
+}
+.ai-start {
+  align-items: flex-start;
+}
+.ai-center {
+  align-items: center;
+}
+.fd-column {
+  flex-direction: column;
+}
+.fd-rr {
+  flex-direction: row-reverse;
+}
+
+// Width
+.w-100 {
+  width: 100% !important;
+}
+//Height
+// .h-100{
+//   height: 100% !important;
+// }
+.m-h-20-p {
+  min-height: 20px;
+}
+.h-form-row {
+  height: 78px;
+}
+
+// Space
+.ws-normal {
+  white-space: normal;
+}
+
+// Cursor
+.c-pointer {
+  cursor: pointer;
+}
+
+.c-allowed {
+  cursor: not-allowed;
+}
+
+// Row Styles
+.row-center {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.row-not-gutters {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.w-360p {
+  width: 360px;
+}
+
+//Text Transform
+.tt-upper {
+  text-transform: uppercase;
+}
+.tt-capitalize {
+  text-transform: capitalize;
+}
+
+// Container
+.container-not-gutters {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+// Word
+.wb-all {
+  word-break: break-all;
+}
+
+// Position
+.po-re {
+  position: relative;
+}
+
+.po-ab {
+  position: absolute;
+}
+
+// Visibility
+.vi-ini {
+  visibility: initial;
+}
+
+.vi-hid {
+  visibility: hidden;
+}
+
+::ng-deep .cust-loading-spinner circle, .cust-loading-spinner circle {
+  stroke: white;
+}
+
+// Snackbar
+::ng-deep .mat-snack-bar-container {
+  color: white !important;
+  border-color: #F1EFEB !important;
+}
+
+::ng-deep .success-snackbar {
+  background-color: green;
+}
+
+::ng-deep .warning-snackbar {
+  background-color: #FFCC00;
+}
+
+::ng-deep .danger-snackbar {
+  background-color: #DB3907;
+}
+
+::ng-deep .mat-simple-snackbar-action {
+  color: white;
+}

@@ -1,0 +1,93 @@
+<div class="box-title">
+  <h1 class="fs-25 m-0">Registro de Cuenta</h1>
+</div>
+<mat-card>
+  <form [formGroup]="accountForm" class="cust-form">
+    <div class="row">
+      <div class="col-md-12 pt-0-5r pb-1-5r">
+        <mat-form-field appearance="outline" [ngClass]="'cust-mat-form-field'">
+          <mat-label>Nombre</mat-label>
+          <input matInput placeholder="Nombre" formControlName="name">
+        </mat-form-field>
+        <ng-container *ngIf="accountForm.get('name').errors && accountForm.get('name').touched">
+          <div class="po-re">
+            <label class="po-ab ct-red fs-14">
+              <ng-container *ngIf="accountForm.get('name').errors?.required">
+                El nombre es requerido.
+              </ng-container>
+              <ng-container *ngIf="accountForm.get('name').errors?.pattern">
+                Debe ingresar solo letras.
+              </ng-container>
+            </label>
+          </div>
+        </ng-container>
+      </div>
+      <div class="col-md-12 pt-0-5r pb-1-5r">
+        <mat-form-field appearance="outline" [ngClass]="'cust-mat-form-field'">
+          <mat-label>RUT</mat-label>
+          <input matInput placeholder="Rut" formControlName="rut">
+        </mat-form-field>
+        <ng-container *ngIf="accountForm.get('rut').errors && accountForm.get('rut').touched">
+          <div class="po-re">
+            <label class="po-ab ct-red fs-14">
+              <ng-container *ngIf="accountForm.get('rut').errors?.required">
+                El rut es requerido.
+              </ng-container>
+            </label>
+          </div>
+        </ng-container>
+      </div>
+      <div class="col-md-12 pt-0-5r pb-1-5r">
+        <mat-form-field appearance="outline" [ngClass]="'cust-mat-form-field'">
+          <mat-label>E-mail</mat-label>
+          <input matInput placeholder="E-mail" formControlName="email">
+        </mat-form-field>
+        <ng-container *ngIf="accountForm.get('email').errors && accountForm.get('email').touched">
+          <div class="po-re">
+            <label class="po-ab ct-red fs-14">
+              <ng-container *ngIf="accountForm.get('email').errors?.required">
+                El email es requerido.
+              </ng-container>
+              <ng-container *ngIf="accountForm.get('email').errors?.email">
+                Debe ingresar un email valido.
+              </ng-container>
+            </label>
+          </div>
+        </ng-container>
+      </div>
+      <div class="col-md-12 pt-0-5r pb-1-5r">
+        <mat-form-field appearance="outline" [ngClass]="'cust-mat-form-field'">
+          <mat-label>Contraseña</mat-label>
+          <input matInput placeholder="Contraseña" formControlName="password" type="password">
+        </mat-form-field>
+        <ng-container *ngIf="accountForm.get('password').errors && accountForm.get('password').touched">
+          <div class="po-re">
+            <label class="po-ab ct-red fs-14">
+              <ng-container *ngIf="accountForm.get('password').errors?.required">
+                La contraseña es requerida.
+              </ng-container>
+            </label>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="box-submit">
+      <button
+        (click)="submitForm(accountForm.value)"
+        [disabled]="accountForm.invalid"
+        [ngClass]="'cust-button-submit'"
+        color="primary"
+        mat-flat-button
+      >
+        <ng-container [ngSwitch]="sendingData">
+          <ng-container *ngSwitchCase="false">
+            Crear Cuenta
+          </ng-container>
+          <ng-container *ngSwitchCase="true">
+            <mat-spinner [ngClass]="'cust-loading-spinner'" diameter="25"></mat-spinner>
+          </ng-container>
+        </ng-container>
+      </button>
+    </div>
+  </form>
+</mat-card>

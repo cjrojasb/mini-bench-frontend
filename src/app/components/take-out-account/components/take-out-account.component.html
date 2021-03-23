@@ -1,0 +1,55 @@
+<div class="box-title">
+  <h1 class="fs-25 m-0">Retirar Saldo</h1>
+</div>
+<ng-container *ngIf="accountBalance !== undefined; else loading">
+  <div class="box-balance">
+    <p class="fs-18 m-0">Saldo de la cuenta: $<span class="fw-bold">{{ accountBalance }}</span></p>
+  </div>
+  <mat-card>
+    <form [formGroup]="accountForm" class="cust-form">
+      <div class="row">
+        <div class="col-md-12 pt-0-5r pb-1-5r">
+          <mat-form-field appearance="outline" [ngClass]="'cust-mat-form-field'">
+            <mat-label>Monto a Retirar</mat-label>
+            <input matInput placeholder="Monto" formControlName="balance">
+          </mat-form-field>
+          <ng-container *ngIf="accountForm.get('balance').errors && accountForm.get('balance').touched">
+            <div class="po-re">
+              <label class="po-ab ct-red fs-14">
+                <ng-container *ngIf="accountForm.get('balance').errors?.required">
+                  El monto es requerido.
+                </ng-container>
+                <ng-container *ngIf="accountForm.get('balance').errors?.pattern">
+                  Debe ingresar solo números.
+                </ng-container>
+              </label>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <div class="box-submit">
+        <button
+          (click)="submitForm(accountForm.value)"
+          [disabled]="accountForm.invalid"
+          [ngClass]="'cust-button-submit'"
+          color="primary"
+          mat-flat-button
+        >
+          <ng-container [ngSwitch]="sendingData">
+            <ng-container *ngSwitchCase="false">
+              Retirar Saldo
+            </ng-container>
+            <ng-container *ngSwitchCase="true">
+              <mat-spinner [ngClass]="'cust-loading-spinner'" diameter="25"></mat-spinner>
+            </ng-container>
+          </ng-container>
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</ng-container>
+<ng-template #loading>
+  <div class="box-spinner">
+    <mat-spinner [ngClass]="'cust-mat-spinner'" diameter="40"></mat-spinner>
+  </div>
+</ng-template>

@@ -1,0 +1,78 @@
+<div class="row cust-row">
+  <div class="col-md-6">
+    <mat-card class="example-card">
+      <mat-card-header [ngClass]="'cust-card-header'">
+        <mat-card-title>Inicia Sesión</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="onLogIn(loginForm.value)">
+          <div class="row">
+            <div class="col-md-12 pt-0-5r pb-1-5r">
+              <mat-form-field appearance="outline" [ngClass]="'cust-mat-form-field'">
+                <mat-label>E-mail</mat-label>
+                <input matInput placeholder="E-mail" formControlName="email">
+              </mat-form-field>
+              <ng-container *ngIf="loginForm.get('email').errors && loginForm.get('email').touched">
+                <div class="po-re">
+                  <label class="po-ab ct-red fs-14">
+                    <ng-container *ngIf="loginForm.get('email').errors?.required">
+                      El email es requerido.
+                    </ng-container>
+                    <ng-container *ngIf="loginForm.get('email').errors?.email">
+                      Debe ingresar un email valido.
+                    </ng-container>
+                  </label>
+                </div>
+              </ng-container>
+            </div>
+            <div class="col-md-12 pt-0-5r pb-1-5r">
+              <mat-form-field appearance="outline" [ngClass]="'cust-mat-form-field'">
+                <mat-label>Contraseña</mat-label>
+                <input matInput placeholder="Contraseña" formControlName="password" type="password">
+              </mat-form-field>
+              <ng-container *ngIf="loginForm.get('password').errors && loginForm.get('password').touched">
+                <div class="po-re">
+                  <label class="po-ab ct-red fs-14">
+                    <ng-container *ngIf="loginForm.get('password').errors?.required">
+                      La contraseña es requerida.
+                    </ng-container>
+                  </label>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <div class="box-submit">
+            <button
+              [disabled]="loginForm.invalid"
+              [ngClass]="'cust-button-submit'"
+              color="primary"
+              mat-flat-button
+              type="submit"
+            >
+              <ng-container [ngSwitch]="sendingData">
+                <ng-container *ngSwitchCase="false">
+                  Iniciar Sesión
+                </ng-container>
+                <ng-container *ngSwitchCase="true">
+                  <mat-spinner [ngClass]="'cust-loading-spinner'" diameter="25"></mat-spinner>
+                </ng-container>
+              </ng-container>
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+      <mat-divider></mat-divider>
+      <div class="box-action">
+        <div>
+          <small class="mr-1r">¿No tienes una cuenta en Mini Banco?</small>
+          <a
+            [routerLink]="'/registro'"
+            mat-button
+          >
+            Regístrate aquí
+          </a>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>
